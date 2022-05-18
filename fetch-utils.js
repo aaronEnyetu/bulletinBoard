@@ -60,4 +60,9 @@ export async function createNewPost(post) {
     }
 }
 
+export async function logout() {
+    await client.auth.signOut();
 
+    return (window.location.href = '/');
+    
+}
