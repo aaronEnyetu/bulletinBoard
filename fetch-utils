@@ -4,12 +4,37 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
 
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
+
+//returns a user if there is one
 export function getUser() {
     return client.auth.session() && client.auth.session().user;
 }
- 
-export async function fetchPosts( {
-    const response = await client.from('posts').select('*');
+ //signs a new user in and puts an auth token in local storage
+export async function signupUser(email, password) {
+    const response = await client.auth.signUp({ email, password });
+    if (response.user) {
+        return response.user;
+    } else {
+        console.error(response.error);
+    }
+}
 
-    return response.data;
-})
+
+//When a user tries to visit a page that calls this function, we automatically redirect the user away from the login page if they are already logged in
+
+export async function checkAuth() {
+    if (!getUser()) {
+        location.replace('/');
+    }
+
+}
+
+export async function redirectIfLoggedIn() {
+    if (getUser()) {
+        location.replace('/create-page');
+    }
+}
+
+
+
+
