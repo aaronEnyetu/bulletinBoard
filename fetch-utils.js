@@ -19,7 +19,7 @@ export async function signupUser(email, password) {
 }
 
 export async function signInUser(email, password) {
-    const response = await client.auth.sigIn({ email, password });
+    const response = await client.auth.signIn({ email, password });
     if (response.user) {
         console.log(response.user);
         return response.user;
@@ -30,7 +30,7 @@ export async function signInUser(email, password) {
 
 
 //When a user tries to visit a page that calls this function, we automatically redirect the user away from the login page if they are already logged in
-
+//
 export async function checkAuth() {
     if (!getUser()) {
         location.replace('/');
@@ -64,5 +64,5 @@ export async function logout() {
     await client.auth.signOut();
 
     return (window.location.href = '/');
-    
+
 }
