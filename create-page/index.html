@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/home.css">
+    <title>Create New Post</title>
+</head>
+<body>
+    <header>
+        <a href="../index.html"><span>HOME</span></a>
+    </header>
+    <main>
+        <div class="center">
+            <h1>Create a Post</h1>
+            
+            <form id="new-post">
+                <label for="title">Title</label>
+                <input type="text" name="title" id="title" />
+                <label for="description">Description</label>
+                <input type="text" name="description" id="description" />
+                <label for="contact">Contact</label>
+                <input type="text" name="contact" id="contact" />
+                <button>Submit</button>
+            </form>
+        </div>
+    </main>
+   
+   
+    <script src="./create-page.js" type="module"></script>
+</body>
+</html>
+

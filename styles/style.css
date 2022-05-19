@@ -2,11 +2,11 @@
 body {
     /* feel free to update these css variables for a quick theme */
     
-    --color1: white;
+    /* --color1: white;
     --color2: white;
     --color3: white;
     --color4: white;
-    --color5: white;
+    --color5: white; */
     
     /* https://coolors.co/generate and click export -> scss to get the colors to copy and paste below*/
         
@@ -16,11 +16,11 @@ body {
     --color4: hsla(187, 41%, 94%, 1);
     --color5: hsla(170, 28%, 95%, 1); */
 
-    /* --color1: hsla(45, 86%, 83%, 1);
+    --color1: rgb(248, 224, 4);
     --color2: hsla(135, 65%, 98%, 1);
-    --color3: hsla(315, 37%, 86%, 1);
-    --color4: hsla(45, 73%, 98%, 1);
-    --color5: hsla(224, 40%, 79%, 1); */
+    --color3: rgb(171, 245, 75);
+    --color4: rgb(80, 241, 241);
+    --color5: rgba(185, 112, 17, 0.747);
     
     --header-height: 80px;
     --shadow: 0px 10px 20px -12px rgba(0,0,0,0.45);
@@ -28,7 +28,7 @@ body {
     --footer-height: 25px;
     
     font-family: 'Titillium Web', sans-serif;
-    background-color: var(--color2);
+    background-color: var(--color5);
 }
 
 main {
@@ -86,6 +86,49 @@ footer {
     height: var(--footer-height);
     display: flex;
     justify-content: flex-end;
-    background-color: var(--color3);
+    background-color: var(--color5);
     box-shadow: var(--shadow);
+}
+
+header {
+    width: 100%;
+    display: flex;
+    flex-direction: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--color2);
+}
+
+header button {
+    height: 40px;
+    width: 150px;
+    background-color: rgb(18, 190, 233);
+}
+.posts {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.post {
+    background-color: var(--color1);
+    width: 300px;
+    height: 300px;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.20) 0px 5px 0px;
+
+}
+
+.post:nth-child(2n) {
+    background-color: var(--color3);
+}
+
+.post:nth-child(3n) {
+    background-color: var(--color4);
+}
+.center {
+    position:absolute;
+    top: 20%;
+    left: 30%
+    
 }

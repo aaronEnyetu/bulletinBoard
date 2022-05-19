@@ -1,8 +1,70 @@
 // import functions and grab DOM elements
+import { fetchPosts, logout } from '../fetch-utils.js';
+import { getUser } from './fetch-utils.js';
 
-// let state
 
-// set event listeners 
-  // get user input
-  // use user input to update state 
-  // update DOM to reflect the new state
+const postsElem = document.getElementById('posts');
+
+async function onLoad() {
+  //load up all the posts
+    const posts = await fetchPosts();
+
+    for (let post of posts) {
+        const div = document.createElement('div');
+        const p = document.createElement('p');
+        const h2 = document.createElement('h2');
+        h2.textContent = post.title;
+        p.textContent = post.description;
+        div.append(h2, p);
+        div.classList.add('post');
+        postsElem.append(div);
+
+    }
+}
+
+const headerBtn = document.getElementById('header-btn');
+async function handleLogout() {
+    await logout();
+
+}
+async function handleAuth() {
+    window.location.href = '/auth-page';
+}
+
+
+const user = getUser();
+if (user) {
+    headerBtn.textContent = 'logout';
+    headerBtn.addEventListener('click', handleLogout);
+    headerBtn.classList.remove('hide');
+
+}
+
+else {
+    headerBtn.textContent = 'Sign In / Sign Up';
+    headerBtn.addEventListener('click', handleAuth);
+    headerBtn.classList.remove('hide');
+}
+
+const createBtn = document.getElementById('create-btn');
+async function handleLogOut() {
+    await logout();
+}
+async function handleauth() {
+    window.location.href = '/create-page';
+}
+
+const user1 = getUser();
+if (user1) {
+    createBtn.textContent = 'logout';
+    createBtn.addEventListener('click', handleLogOut);
+    createBtn.classList.remove('hide');
+
+}
+else {
+    createBtn.textContent = 'Create Post';
+    createBtn.addEventListener('click', handleauth);
+    createBtn.classList.remove('create');
+}
+
+onLoad();
