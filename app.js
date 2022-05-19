@@ -46,4 +46,25 @@ else {
     headerBtn.classList.remove('hide');
 }
 
+const createBtn = document.getElementById('create-btn');
+async function handleLogOut() {
+    await logout();
+}
+async function handleauth() {
+    window.location.href = '/create-page';
+}
+
+const user1 = getUser();
+if (user1) {
+    createBtn.textContent = 'logout';
+    createBtn.addEventListener('click', handleLogOut);
+    createBtn.classList.remove('hide');
+
+}
+else {
+    createBtn.textContent = 'Create Post';
+    createBtn.addEventListener('click', handleauth);
+    createBtn.classList.remove('create');
+}
+
 onLoad();

@@ -33,7 +33,7 @@ export async function signInUser(email, password) {
 //
 export async function checkAuth() {
     if (!getUser()) {
-        location.replace('/');
+        location.replace('/auth-page');
     }
 
 }
