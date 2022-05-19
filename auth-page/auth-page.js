@@ -5,14 +5,9 @@ const signUpForm = document.getElementById('sign-up');
 
 const signInForm = document.getElementById('sign-in');
 
-
+//Adding Event Listeners
 redirectIfLoggedIn();
-// let state
 
-// set event listeners 
-  // get user input
-  // use user input to update state 
-  // update DOM to reflect the new state
 signUpForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const data = new FormData(signUpForm);
@@ -27,7 +22,7 @@ signUpForm.addEventListener('submit', async (e) => {
 signInForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const data = new FormData(signInForm);
-    console.log ({email: data.get('email'), password: data.get('password') });
+    console.log ({ email: data.get('email'), password: data.get('password') });
     const user = await signInUser(data.get('email'), data.get('password'));
 
     if (user) {
