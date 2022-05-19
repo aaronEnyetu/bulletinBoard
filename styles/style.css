@@ -126,3 +126,9 @@ header button {
 .post:nth-child(3n) {
     background-color: var(--color4);
 }
+.center {
+    position:absolute;
+    top: 20%;
+    left: 30%
+    
+}
